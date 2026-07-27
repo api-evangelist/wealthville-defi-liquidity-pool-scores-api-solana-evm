@@ -1,0 +1,55 @@
+name: WealthVille — DeFi Liquidity Pool Scores API (Solana & EVM)
+description: >-
+  WealthVille provides a public, keyless REST API and agent-native surfaces for DeFi liquidity-pool scoring and signals
+  across Solana and EVM chains. It exposes a composite Wealthville Score (0-100) with Enter/Hold/Exit verdicts,
+  per-protocol confidence, Solana sub-scores (Risk, Scout, Farmer), an outcome-labeled track record, and a signals feed.
+  Coverage includes Solana (Meteora, Orca, Raydium) and EVM chains (Ethereum, Arbitrum, Base, Optimism, Polygon, BNB
+  Chain).
+url: https://wealthville-defi-liquidity-pool-scores-api-solana-evm.apievangelist.com/apis.yml
+created: '2026-07-27'
+modified: '2026-07-27'
+specificationVersion: '0.21'
+tags:
+  - DeFi
+  - Liquidity Pools
+  - Blockchain Analytics
+  - Solana
+  - EVM
+  - Ethereum
+  - Yield Farming
+  - Risk Scoring
+  - MCP
+  - AI Agents
+  - Financial Data
+apis:
+  - name: WealthVille Public Scores & Signals API
+    description: >-
+      Public, keyless REST API for DeFi liquidity-pool scores, verdicts, track record, and signals feed. Anonymous
+      access at 60 req/min per IP; optional free partner keys via x-api-key header. CORS-open.
+    humanURL: https://wealthville.net/developers
+    baseURL: https://wealthville.net
+    tags:
+      - DeFi
+      - Liquidity Pools
+      - Blockchain Analytics
+      - Solana
+      - EVM
+      - Ethereum
+      - Yield Farming
+      - Risk Scoring
+      - MCP
+      - AI Agents
+      - Financial Data
+    properties:
+      - type: Documentation
+        url: https://wealthville.net/developers
+      - type: LLMSTxt
+        url: https://wealthville.net/llms.txt
+maintainers:
+  - FN: WealthVille
+    url: https://wealthville.net
+generated:
+  by: apis.io/add
+  model: claude-opus-4-8
+  confidence: 90
+  at: '2026-07-27T18:55:20.355Z'
