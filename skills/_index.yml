@@ -1,0 +1,23 @@
+generated: '2026-08-09'
+method: searched
+source: https://github.com/amitesh-m/wealthville-integrations/blob/main/skills/wealthville/SKILL.md
+note: >-
+  Provider-published Agent Skill, saved verbatim. WealthVille ships it MIT-licensed from its own
+  integrations repo alongside the MCP server; API Evangelist authored none of it.
+skills:
+  - file: wealthville-defi-liquidity-pool-scores-api-solana-evm-pool-scoring.md
+    name: wealthville
+    title: WealthVille - liquidity-pool scoring
+    description: >-
+      Score Solana and EVM liquidity pools before providing liquidity. Returns a 0-100 pool score, an
+      ENTER/HOLD/EXIT/REDUCE/AVOID verdict with calibrated confidence, and a public miss-inclusive
+      track record.
+    api: openapi/wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json
+    operations:
+      - "GET /api/v1/scores/{poolAddress}"
+      - "GET /api/v1/scores/top"
+      - "GET /api/v1/signals/feed"
+      - "GET /api/v1/track-record"
+    license: MIT
+    read_only: true
+    method: searched

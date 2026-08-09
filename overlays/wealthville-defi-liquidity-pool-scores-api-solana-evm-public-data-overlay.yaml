@@ -1,0 +1,46 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for WealthVille Public Data API
+  version: 1.0.0
+extends: openapi/wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json
+x-generated: '2026-08-09'
+x-method: generated
+x-note: >-
+  Non-destructive enhancements over the provider's published spec. The provider's document declares no
+  operationId and no tags on any operation, which blocks code generation, Arazzo authoring and MCP tool
+  binding by id. These actions propose ids and tags without mutating the harvested original. They are
+  API Evangelist suggestions, not provider claims.
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-slug: wealthville-defi-liquidity-pool-scores-api-solana-evm
+      x-apievangelist-harvested: '2026-08-09'
+      x-apievangelist-source: https://wealthville.net/openapi.json
+  - target: $.tags
+    update:
+      - name: Scores
+        description: Composite Wealthville Score and Enter/Hold/Exit verdicts for liquidity pools.
+      - name: Signals
+        description: Published signal feed and individual signal outcomes.
+      - name: Track Record
+        description: Live, miss-inclusive accuracy ledger for published signals.
+  - target: $.paths['/api/v1/scores/top'].get
+    update:
+      operationId: getTopScores
+      tags: [Scores]
+  - target: $.paths['/api/v1/scores/{poolAddress}'].get
+    update:
+      operationId: getPoolScore
+      tags: [Scores]
+  - target: $.paths['/api/v1/track-record'].get
+    update:
+      operationId: getTrackRecord
+      tags: [Track Record]
+  - target: $.paths['/api/v1/signals/feed'].get
+    update:
+      operationId: getSignalsFeed
+      tags: [Signals]
+  - target: $.paths['/api/v1/signals/{id}'].get
+    update:
+      operationId: getSignal
+      tags: [Signals]

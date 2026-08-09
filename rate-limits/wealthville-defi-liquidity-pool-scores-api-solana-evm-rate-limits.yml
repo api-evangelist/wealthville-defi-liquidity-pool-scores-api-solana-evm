@@ -1,0 +1,25 @@
+generated: '2026-08-09'
+method: searched
+source: https://wealthville.net/developers
+also_documented_in:
+  - https://wealthville.net/openapi.json
+  - skills/wealthville-defi-liquidity-pool-scores-api-solana-evm-pool-scoring.md
+rate_limits:
+  - name: Anonymous
+    limit_count: 60
+    limit_interval: minute
+    scope: per IP
+    authentication: none
+    description: Default keyless access to the public scores, signals and track-record endpoints.
+  - name: Partner key
+    limit_count: 600
+    limit_interval: minute
+    scope: per key
+    authentication: x-api-key header
+    cost: free
+    description: >-
+      Free partner key requested through the developer page. Raises the rate limit only; the provider
+      states it grants no additional data.
+headers:
+  documented: false
+  note: The provider publishes no X-RateLimit-* or Retry-After documentation, so remaining budget is not observable to a caller.

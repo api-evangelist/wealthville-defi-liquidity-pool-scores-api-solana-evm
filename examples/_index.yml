@@ -1,0 +1,19 @@
+generated: '2026-08-09'
+method: probed
+source: live GET against https://wealthville.net/api/v1 on 2026-08-09
+note: >-
+  Real captured response payloads, saved verbatim. The published OpenAPI declares response schemas but
+  carries no response examples, so these are recorded from the live keyless API rather than invented.
+examples:
+  - file: wealthville-defi-liquidity-pool-scores-api-solana-evm-scores-top.json
+    operation: "GET /api/v1/scores/top"
+    request: "https://wealthville.net/api/v1/scores/top?limit=3"
+    http_status: 200
+  - file: wealthville-defi-liquidity-pool-scores-api-solana-evm-track-record.json
+    operation: "GET /api/v1/track-record"
+    request: "https://wealthville.net/api/v1/track-record"
+    http_status: 200
+  - file: wealthville-defi-liquidity-pool-scores-api-solana-evm-signals-feed.json
+    operation: "GET /api/v1/signals/feed"
+    request: "https://wealthville.net/api/v1/signals/feed?limit=3"
+    http_status: 200

@@ -4,10 +4,14 @@ description: >-
   across Solana and EVM chains. It exposes a composite Wealthville Score (0-100) with Enter/Hold/Exit verdicts,
   per-protocol confidence, Solana sub-scores (Risk, Scout, Farmer), an outcome-labeled track record, and a signals feed.
   Coverage includes Solana (Meteora, Orca, Raydium) and EVM chains (Ethereum, Arbitrum, Base, Optimism, Polygon, BNB
-  Chain).
+  Chain). The API is anonymous by default at 60 requests/min per IP, CORS-open, and read-only — every published
+  operation is a GET. Alongside the REST contract WealthVille publishes an OpenAPI 3.0.3 document at the API host root,
+  an llms.txt, a hosted Streamable-HTTP MCP server with four ungated tools, and a first-party MIT-licensed connector
+  family (MCP server, ElizaOS plugin, Solana Agent Kit plugin, MCPB bundle, Gemini extension) plus its own Agent Skill.
 url: https://wealthville-defi-liquidity-pool-scores-api-solana-evm.apievangelist.com/apis.yml
+image: https://raw.githubusercontent.com/amitesh-m/wealthville-integrations/main/assets/logo.png
 created: '2026-07-27'
-modified: '2026-07-27'
+modified: '2026-08-09'
 specificationVersion: '0.21'
 tags:
   - DeFi
@@ -27,7 +31,7 @@ apis:
       Public, keyless REST API for DeFi liquidity-pool scores, verdicts, track record, and signals feed. Anonymous
       access at 60 req/min per IP; optional free partner keys via x-api-key header. CORS-open.
     humanURL: https://wealthville.net/developers
-    baseURL: https://wealthville.net
+    baseURL: https://wealthville.net/api/v1
     tags:
       - DeFi
       - Liquidity Pools
@@ -45,11 +49,78 @@ apis:
         url: https://wealthville.net/developers
       - type: LLMSTxt
         url: https://wealthville.net/llms.txt
+      - type: OpenAPI
+        url: openapi/wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json
+      - type: Overlay
+        url: overlays/wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-overlay.yaml
+      - type: Examples
+        url: examples/_index.yml
+      - type: ToolCrosswalk
+        url: mcp/wealthville-defi-liquidity-pool-scores-api-solana-evm-tool-crosswalk.yml
 maintainers:
   - FN: WealthVille
     url: https://wealthville.net
+    email: support@wealthville.net
 generated:
   by: apis.io/add
   model: claude-opus-4-8
   confidence: 90
   at: '2026-07-27T18:55:20.355Z'
+common:
+- type: VulnerabilityDisclosure
+  url: security/wealthville-defi-liquidity-pool-scores-api-solana-evm-vulnerability-disclosure.yml
+- type: Security
+  url: https://wealthville.net/security
+- type: DomainSecurity
+  url: security/wealthville-defi-liquidity-pool-scores-api-solana-evm-domain-security.yml
+- type: Authentication
+  url: authentication/wealthville-defi-liquidity-pool-scores-api-solana-evm-authentication.yml
+- type: MCPServer
+  url: mcp/wealthville-defi-liquidity-pool-scores-api-solana-evm-mcp.yml
+- type: ToolCrosswalk
+  url: mcp/wealthville-defi-liquidity-pool-scores-api-solana-evm-tool-crosswalk.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Packages
+  url: packages/wealthville-defi-liquidity-pool-scores-api-solana-evm-packages.yml
+- type: SDKs
+  url: packages/wealthville-defi-liquidity-pool-scores-api-solana-evm-packages.yml
+- type: LLMsTxt
+  url: llms/wealthville-defi-liquidity-pool-scores-api-solana-evm-llms.txt
+- type: WellKnown
+  url: well-known/wealthville-defi-liquidity-pool-scores-api-solana-evm-well-known.yml
+- type: Conventions
+  url: conventions/wealthville-defi-liquidity-pool-scores-api-solana-evm-conventions.yml
+- type: Idempotency
+  url: conventions/wealthville-defi-liquidity-pool-scores-api-solana-evm-conventions.yml
+- type: RateLimits
+  url: rate-limits/wealthville-defi-liquidity-pool-scores-api-solana-evm-rate-limits.yml
+- type: ErrorCatalog
+  url: errors/wealthville-defi-liquidity-pool-scores-api-solana-evm-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/wealthville-defi-liquidity-pool-scores-api-solana-evm-lifecycle.yml
+- type: Conformance
+  url: conformance/wealthville-defi-liquidity-pool-scores-api-solana-evm-conformance.yml
+- type: DataModel
+  url: data-model/wealthville-defi-liquidity-pool-scores-api-solana-evm-data-model.yml
+- type: DeveloperPortal
+  url: https://wealthville.net/developers
+- type: APIReference
+  url: https://wealthville.net/developers
+- type: GitHubOrganization
+  url: https://github.com/amitesh-m/wealthville-integrations
+- type: Support
+  url: https://wealthville.net/contact
+- type: Blog
+  url: https://blog.wealthville.net/
+- type: Pricing
+  url: https://wealthville.net/pricing
+- type: TermsOfService
+  url: https://wealthville.net/terms
+- type: PrivacyPolicy
+  url: https://wealthville.net/privacy
+x-enrichment:
+  date: '2026-08-09'
+  status: enriched
+  artifacts_added: 23
+  pass: local-v1

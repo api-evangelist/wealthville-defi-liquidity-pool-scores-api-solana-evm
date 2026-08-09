@@ -1,0 +1,68 @@
+generated: '2026-08-09'
+method: searched
+source: https://wealthville.net/developers
+also_derived_from:
+  - openapi/wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json
+  - skills/wealthville-defi-liquidity-pool-scores-api-solana-evm-pool-scoring.md
+base_url: https://wealthville.net/api/v1
+authentication:
+  style: optional-api-key
+  scheme: apiKey
+  location: header
+  parameter: x-api-key
+  anonymous_allowed: true
+  note: >-
+    Anonymous access is the documented default. A free partner key raises the rate limit only; the
+    provider states it grants no additional data. See authentication/.
+idempotency:
+  supported: true
+  mechanism: safe-methods-only
+  note: >-
+    Every operation in the published contract is a GET, and the provider's own MCP tool annotations
+    set idempotentHint true and readOnlyHint true on all four tools. Repeating any call is safe and
+    side-effect-free by construction. There is no write surface and therefore no Idempotency-Key
+    header - the guarantee comes from the API being wholly read-only, which is the strongest form of
+    it for an agent caller.
+  evidence:
+    - openapi declares only GET operations (5 of 5)
+    - mcp tools/list annotations idempotentHint=true, readOnlyHint=true, destructiveHint=false (4 of 4)
+pagination:
+  style: limit-only
+  params:
+    - {name: limit, in: query, applies_to: [GET /api/v1/scores/top, GET /api/v1/signals/feed], max: 100}
+  cursor: false
+  note: >-
+    No cursor, offset or page token is published. Collections are bounded by limit alone, so there is
+    no documented way to walk past the head of a list.
+filtering:
+  - {name: chain, in: query, applies_to: [GET /api/v1/scores/top], values: "solana | evm | ethereum | base | arbitrum | optimism | polygon | bsc"}
+caching:
+  server_side: 5-10 minutes
+  freshness_field: computed_at
+  as_of_field: as_of
+  note: Responses carry as_of and per-row computed_at timestamps; scores refresh on a tier cadence (vault-held pools every 15 minutes, long tail slower).
+rate_limiting:
+  anonymous: 60 requests/minute per IP
+  partner_key: 600 requests/minute
+  signaling: not documented
+  see: rate-limits/wealthville-defi-liquidity-pool-scores-api-solana-evm-rate-limits.yml
+cors:
+  open: true
+  note: The provider documents the API as CORS-open for browser callers.
+versioning:
+  scheme: uri-path
+  current: v1
+  see: lifecycle/wealthville-defi-liquidity-pool-scores-api-solana-evm-lifecycle.yml
+error_envelope:
+  format: bare-json-object
+  media_type: application/json
+  shape: {error: string}
+  rfc9457: false
+  see: errors/wealthville-defi-liquidity-pool-scores-api-solana-evm-problem-types.yml
+tracing:
+  request_id_header: not documented
+gaps:
+  - No operationId or tags on any operation in the published OpenAPI.
+  - No RFC 9457 problem+json; errors are a bare {"error": string} object.
+  - No documented rate-limit response headers, so a caller cannot see remaining budget before a 429.
+  - No cursor pagination, so deep collection access is not possible through the public contract.

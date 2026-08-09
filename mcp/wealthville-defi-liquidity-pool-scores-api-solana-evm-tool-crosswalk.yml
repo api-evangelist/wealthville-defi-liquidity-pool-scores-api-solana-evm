@@ -1,0 +1,80 @@
+generated: '2026-08-09'
+method: derived
+source: >-
+  mcp/wealthville-defi-liquidity-pool-scores-api-solana-evm-mcp-tools.json (live anonymous tools/list)
+  bound against openapi/wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json
+note: >-
+  The published OpenAPI declares no operationId on any of its five operations, so REST operations are
+  addressed here by METHOD + PATH. overlays/wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-overlay.yaml
+  proposes the operationIds shown in `proposed_operation_id`; those are our suggestion, not a provider claim.
+surfaces:
+  openapi:
+    file: openapi/wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json
+    source: https://wealthville.net/openapi.json
+    gated: false
+    operations: 5
+  mcp:
+    url: https://wealthville.net/mcp
+    transport: streamable-http
+    gated: false
+    tools: 4
+  graphql:
+    present: false
+crosswalk:
+  - tool: get_pool_score
+    category: scoring
+    rest: ["GET /api/v1/scores/{poolAddress}"]
+    proposed_operation_id: getPoolScore
+    binding: rest
+    confidence: high
+    note: >-
+      Tool input pool_address maps 1:1 onto the poolAddress path parameter; both accept Solana base58,
+      EVM 0x, or a DefiLlama pool UUID.
+  - tool: get_top_pools
+    category: scoring
+    rest: ["GET /api/v1/scores/top"]
+    proposed_operation_id: getTopScores
+    binding: rest
+    confidence: high
+    note: Tool inputs limit and chain map onto the operation's limit and chain query parameters.
+  - tool: get_track_record
+    category: transparency
+    rest: ["GET /api/v1/track-record"]
+    proposed_operation_id: getTrackRecord
+    binding: rest
+    confidence: medium
+    note: >-
+      The tool exposes a `days` window (7-90, default 30); the OpenAPI operation declares no such
+      parameter, so either the spec omits it or the server applies the window MCP-side. Recorded as a
+      real divergence rather than assumed equivalent.
+  - tool: get_signals_feed
+    category: signals
+    rest: ["GET /api/v1/signals/feed"]
+    proposed_operation_id: getSignalsFeed
+    binding: rest
+    confidence: high
+    note: Tool input limit maps onto the operation's limit query parameter.
+mcp_only: []
+rest_only:
+  - operation: "GET /api/v1/signals/{id}"
+    proposed_operation_id: getSignal
+    capability: signals
+    note: >-
+      Fetch one published signal including its realized outcome. No MCP tool exposes single-signal
+      retrieval; an agent must page the feed to reach it.
+documented_but_unspecified:
+  note: >-
+    The provider's own Agent Skill documents three endpoints that the published OpenAPI does not
+    declare. Recorded verbatim as a spec/docs divergence for the provider to reconcile; not added to
+    the spec by us.
+  paths:
+    - {path: "GET /api/v1/pools/top", source: "skills/wealthville-defi-liquidity-pool-scores-api-solana-evm-pool-scoring.md"}
+    - {path: "GET /api/v1/evm/pools", source: "skills/wealthville-defi-liquidity-pool-scores-api-solana-evm-pool-scoring.md"}
+    - {path: "GET /api/v1/evm/chains", source: "skills/wealthville-defi-liquidity-pool-scores-api-solana-evm-pool-scoring.md"}
+coverage:
+  tools_named: 4
+  tools_bound: 4
+  mcp_only: 0
+  rest_ops_total: 5
+  rest_ops_with_tool: 4
+  rest_ops_without_tool: 1

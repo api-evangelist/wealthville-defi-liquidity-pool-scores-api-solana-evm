@@ -1,0 +1,54 @@
+generated: '2026-08-09'
+method: derived
+source: openapi/wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json
+verified_by: live response payloads in examples/
+note: >-
+  Only one schema is named in components (ScoreRow); the track-record and signals payloads are declared
+  inline, so the entities below are derived from those inline shapes plus captured live responses. The
+  join key across all three is pool_address.
+entities:
+  - name: ScoreRow
+    schema: "#/components/schemas/ScoreRow"
+    key: pool_address
+    key_format: >-
+      Solana base58 pool address, or an EVM 0x address / DefiLlama pool UUID for EVM rows
+    fields:
+      - {name: pool_address, type: string, role: identifier}
+      - {name: pool_name, type: string, note: token pair e.g. SOL/USDC; falls back to the address when token metadata is unavailable}
+      - {name: protocol, type: string, example: orca-whirlpool}
+      - {name: chain, type: string, example: solana}
+      - {name: verdict, type: enum, values: [ENTER, INCREASE, HOLD, REDUCE, EXIT, AVOID, INSUFFICIENT_DATA]}
+      - {name: confidence, type: string, note: 0-1 stringified numeric}
+      - {name: enter_score, type: integer, range: 0-100, nullable: true}
+      - {name: hold_score, type: integer, range: 0-100, nullable: true}
+      - {name: exit_score, type: integer, range: 0-100, nullable: true}
+      - {name: wealthville_score, type: integer, range: 0-100, nullable: true, note: composite, 0.55*enter + 0.45*hold}
+      - {name: computed_at, type: date-time}
+      - {name: reasons, type: array of string}
+      - {name: data_tier, type: integer, nullable: true, note: "Solana refresh bucket: 0~15min, 1~1h, 2~6h, 3~24h"}
+  - name: ScoresTopResponse
+    inline: true
+    fields: [as_of, methodology, scores]
+    note: Envelope wrapping an array of ScoreRow.
+  - name: Signal
+    inline: true
+    key: id
+    fields: [id, generated_at, signal_kind, action, severity, protocol, pool_address, confidence, calibrated_confidence, narrative, outcome]
+    note: >-
+      A published call with a realized outcome. calibrated_confidence is fitted per protocol against
+      realised outcomes; the provider's own skill instructs consumers to prefer it over raw confidence.
+  - name: TrackRecordEntry
+    inline: true
+    key: final_action
+    fields: [final_action, signals, resolved, hit_rate, il_adjusted_pnl]
+    note: Aggregate accuracy per verdict class over a rolling window; misses included by design.
+relationships:
+  - {from: ScoresTopResponse, to: ScoreRow, kind: has_many, via: scores}
+  - {from: Signal, to: ScoreRow, kind: belongs_to, via: pool_address}
+  - {from: TrackRecordEntry, to: Signal, kind: has_many, via: final_action, note: aggregates signals sharing a verdict class}
+domains:
+  - {name: Solana, protocols: [meteora-dlmm, orca-whirlpool, raydium-amm, raydium-clmm, raydium-cpmm], coverage: "~68,800 pools (provider figure)"}
+  - {name: EVM, chains: [ethereum, arbitrum, base, optimism, polygon, bsc], protocols: [uniswap-v2, uniswap-v3, uniswap-v4, aave-v3, morpho-blue, pendle, curve, compound-v3, aerodrome], coverage: "575 curated pools (provider figure)"}
+gaps:
+  - Signal and TrackRecordEntry are inline schemas, not reusable components - so no $ref reuse and no generated model names.
+  - GET /api/v1/signals/{id} declares no 200 content schema at all.

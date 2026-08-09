@@ -1,0 +1,44 @@
+generated: '2026-08-09'
+method: derived
+source: openapi/wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json
+verified_by: live probe of https://wealthville.net/api/v1 on 2026-08-09
+format: bare-json-object
+rfc9457: false
+envelope:
+  media_type: application/json
+  shape:
+    error: string
+  note: >-
+    The published OpenAPI declares 4xx responses with a description but NO content schema, so the
+    envelope below was confirmed by probing the live API rather than read from the spec. Errors are a
+    single-key object; there is no type URI, no title/detail split, no machine-readable code, and no
+    application/problem+json. An agent has only a human-readable English string to branch on.
+problems:
+  - status: 400
+    title: Invalid pool address
+    observed_body: {error: invalid pool address}
+    source_operation: "openapi/…-public-data-openapi.json#GET /api/v1/scores/{poolAddress}"
+    evidence: {url: "https://wealthville.net/api/v1/scores/notarealpool", http_status: 400, fetched: '2026-08-09'}
+    remediation: Supply a Solana base58 pool address, an EVM 0x address, or a DefiLlama pool UUID (minimum 8 characters).
+  - status: 404
+    title: Pool not scored
+    source_operation: "openapi/…-public-data-openapi.json#GET /api/v1/scores/{poolAddress}"
+    remediation: >-
+      The address parsed but carries no score. Solana coverage requires TVL at or above the liquidity
+      floor; EVM coverage is a curated set of ~575 pools. Absence is not a negative signal.
+  - status: 404
+    title: Signal not found
+    observed_body: {error: Signal not found}
+    source_operation: "openapi/…-public-data-openapi.json#GET /api/v1/signals/{id}"
+    evidence: {url: "https://wealthville.net/api/v1/signals/999999999", http_status: 404, fetched: '2026-08-09'}
+    remediation: Enumerate valid ids from GET /api/v1/signals/feed.
+undocumented:
+  - status: 429
+    note: >-
+      A rate limit of 60 req/min anonymous is documented in prose, but no 429 response is declared on
+      any operation in the spec and no Retry-After behaviour is published. An agent cannot plan a
+      backoff from the contract.
+gaps:
+  - 4xx responses in the OpenAPI declare no content schema; the error envelope is undocumented in-spec.
+  - No stable error codes - only English strings, which are not safe to branch on.
+  - No 429 declared despite a published rate limit.

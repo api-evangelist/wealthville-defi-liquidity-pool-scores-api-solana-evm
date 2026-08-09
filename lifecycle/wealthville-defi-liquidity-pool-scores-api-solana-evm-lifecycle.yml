@@ -1,0 +1,43 @@
+generated: '2026-08-09'
+method: searched
+source: https://wealthville.net/developers
+versioning:
+  scheme: uri-path
+  current: v1
+  spec_version: 1.0.0
+  docs: https://wealthville.net/developers
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: false
+  note: >-
+    No deprecation or sunset policy is published, and no RFC 8594 Sunset/Deprecation header support is
+    documented. Nothing in the spec is marked deprecated.
+sla:
+  url: null
+  uptime_target: null
+  note: >-
+    The provider states there is no paid API tier and no billing, and publishes no SLA or uptime
+    commitment for the public API.
+status_page:
+  url: null
+  probed:
+    - {url: "https://status.wealthville.net", result: DNS did not resolve}
+    - {url: "https://wealthville.net/status", http_status: 404}
+  note: >-
+    No status page exists. The closest published operational-transparency surface is the live track
+    record at https://wealthville.net/track-record, which reports model accuracy - not uptime - and is
+    catalogued separately.
+changelog:
+  url: null
+  probed:
+    - {url: "https://wealthville.net/changelog", http_status: 404}
+    - {url: "https://wealthville.net/developers/changelog", http_status: 404}
+  note: >-
+    No dated API changelog. Version history is observable only through the MCP server's semver
+    (@wealthville/mcp-server 0.1.1 in the MCP registry, 0.3.1 in the repo) and GitHub releases.
+freshness:
+  score_refresh: tier cadence - vault-held pools every 15 minutes, long tail far less often
+  response_cache: 5-10 minutes
+  staleness_field: signals_ts / computed_at
+deprecated_operations: []

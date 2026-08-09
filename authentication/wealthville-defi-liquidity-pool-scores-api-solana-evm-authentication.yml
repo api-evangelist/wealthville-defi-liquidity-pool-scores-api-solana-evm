@@ -1,0 +1,16 @@
+generated: '2026-08-09'
+method: derived
+source: openapi/wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: ApiKeyAuth
+  type: apiKey
+  in: header
+  parameter: x-api-key
+  description: Optional partner key — raises the rate limit and identifies the caller.
+  sources:
+  - openapi/wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json

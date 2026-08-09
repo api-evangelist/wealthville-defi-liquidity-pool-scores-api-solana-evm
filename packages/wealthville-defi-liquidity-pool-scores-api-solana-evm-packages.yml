@@ -1,0 +1,59 @@
+generated: '2026-08-09'
+method: searched
+source: https://github.com/amitesh-m/wealthville-integrations
+notes: >-
+  WealthVille publishes no conventional REST client SDK (the API is keyless and CORS-open, so the
+  documented integration path is plain HTTP). What it does publish, first-party, is an agent-connector
+  family: an MCP server plus ElizaOS and Solana Agent Kit plugins, all MIT-licensed out of one repo.
+packages:
+  - language: javascript
+    registry: npm
+    name: "@wealthville/mcp-server"
+    version: 0.3.1
+    url: https://www.npmjs.com/package/@wealthville/mcp-server
+    install: npx -y @wealthville/mcp-server
+    binaries: [wealthville-mcp, wealthville-mcp-http]
+    description: MCP server exposing WealthVille pool scores, verdicts, and the live track record to AI assistants.
+    license: MIT
+    official: true
+    source: https://github.com/amitesh-m/wealthville-integrations/tree/main/mcp-server
+  - language: javascript
+    registry: npm
+    name: "@wealthville/plugin-wealthville"
+    version: 0.2.1
+    url: https://www.npmjs.com/package/@wealthville/plugin-wealthville
+    install: npm install @wealthville/plugin-wealthville
+    description: ElizaOS plugin - WealthVille liquidity-pool scores, verdicts, and track record for DeFi agents.
+    license: MIT
+    official: true
+    source: https://github.com/amitesh-m/wealthville-integrations/tree/main/elizaos-plugin
+  - language: javascript
+    registry: npm
+    name: "@wealthville/solana-agent-kit-plugin"
+    version: 0.1.0
+    url: https://www.npmjs.com/package/@wealthville/solana-agent-kit-plugin
+    install: npm install @wealthville/solana-agent-kit-plugin
+    description: Solana Agent Kit plugin - WealthVille pool scores, verdicts, and track record for on-chain AI agents.
+    license: MIT
+    official: true
+    source: https://github.com/amitesh-m/wealthville-integrations/tree/main/solana-agent-kit-plugin
+bundles:
+  - name: WealthVille MCPB desktop bundle
+    format: mcpb
+    manifest: https://github.com/amitesh-m/wealthville-integrations/blob/main/mcpb/manifest.json
+    version: 0.3.1
+    official: true
+  - name: Gemini CLI extension
+    format: gemini-extension
+    manifest: https://github.com/amitesh-m/wealthville-integrations/blob/main/gemini-extension.json
+    version: 0.3.1
+    official: true
+registries_probed:
+  - {registry: npm, result: 3 first-party scoped packages}
+  - {registry: pypi, result: none}
+  - {registry: maven-central, result: none}
+  - {registry: nuget, result: none}
+  - {registry: rubygems, result: none}
+  - {registry: packagist, result: none}
+  - {registry: crates.io, result: none}
+  - {registry: pkg.go.dev, result: none}
