@@ -8,7 +8,7 @@ description: >-
   operation is a GET. Alongside the REST contract WealthVille publishes an OpenAPI 3.0.3 document at the API host root,
   an llms.txt, a hosted Streamable-HTTP MCP server with four ungated tools, and a first-party MIT-licensed connector
   family (MCP server, ElizaOS plugin, Solana Agent Kit plugin, MCPB bundle, Gemini extension) plus its own Agent Skill.
-url: https://wealthville-defi-liquidity-pool-scores-api-solana-evm.apievangelist.com/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/wealthville-defi-liquidity-pool-scores-api-solana-evm/refs/heads/main/apis.yml
 image: https://raw.githubusercontent.com/amitesh-m/wealthville-integrations/main/assets/logo.png
 created: '2026-07-27'
 modified: '2026-08-09'
