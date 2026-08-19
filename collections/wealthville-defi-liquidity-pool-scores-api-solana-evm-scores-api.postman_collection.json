@@ -1,0 +1,301 @@
+{
+  "item": [
+    {
+      "id": "2c4f02ea-b29f-431f-9ffc-17a652d44ebf",
+      "name": "Scores",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c836bae2-11e9-4f32-81dd-6372383c43d0",
+          "name": "Top pools ranked by Wealthville Score",
+          "request": {
+            "name": "Top pools ranked by Wealthville Score",
+            "description": {
+              "content": "Freshly scored pools (verdicts computed within the last 6 hours), ranked by composite score. Cached 5 minutes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "scores",
+                "top"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25"
+                },
+                {
+                  "disabled": false,
+                  "key": "chain",
+                  "value": "solana",
+                  "description": "\"solana\" (default), \"evm\" (all EVM chains), or one EVM chain name (e.g. \"ethereum\", \"base\")"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c09cc646-97e0-468b-982a-36823470dfe3",
+              "name": "Ranked scores",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "scores",
+                    "top"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "chain",
+                      "value": "solana"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"as_of\": \"1994-04-17T11:45:24.325Z\",\n  \"methodology\": \"string\",\n  \"scores\": [\n    {\n      \"pool_address\": \"string\",\n      \"pool_name\": \"string\",\n      \"protocol\": \"orca-whirlpool\",\n      \"chain\": \"solana\",\n      \"verdict\": \"INSUFFICIENT_DATA\",\n      \"confidence\": \"string\",\n      \"enter_score\": null,\n      \"hold_score\": 89,\n      \"exit_score\": 29,\n      \"wealthville_score\": 30,\n      \"computed_at\": \"1975-02-10T16:44:34.199Z\",\n      \"reasons\": [\n        \"string\",\n        \"string\"\n      ],\n      \"data_tier\": 8895\n    },\n    {\n      \"pool_address\": \"string\",\n      \"pool_name\": \"string\",\n      \"protocol\": \"orca-whirlpool\",\n      \"chain\": \"solana\",\n      \"verdict\": \"REDUCE\",\n      \"confidence\": \"string\",\n      \"enter_score\": null,\n      \"hold_score\": null,\n      \"exit_score\": null,\n      \"wealthville_score\": 20,\n      \"computed_at\": \"2011-05-11T05:09:20.321Z\",\n      \"reasons\": [\n        \"string\",\n        \"string\"\n      ],\n      \"data_tier\": null\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f2aac0dd-22ac-4d59-ad96-1d31bb7bd71f",
+          "name": "Scores for one pool",
+          "request": {
+            "name": "Scores for one pool",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "scores",
+                ":poolAddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "poolAddress",
+                  "description": "(Required) Solana base58 address, or an EVM 0x address / DefiLlama pool UUID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "714caf87-d785-4673-8d94-af321be618dc",
+              "name": "Score row",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "scores",
+                    ":poolAddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "poolAddress",
+                      "description": "(Required) Solana base58 address, or an EVM 0x address / DefiLlama pool UUID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pool_address\": \"string\",\n  \"pool_name\": \"string\",\n  \"protocol\": \"orca-whirlpool\",\n  \"chain\": \"solana\",\n  \"verdict\": \"REDUCE\",\n  \"confidence\": \"string\",\n  \"enter_score\": null,\n  \"hold_score\": null,\n  \"exit_score\": null,\n  \"wealthville_score\": null,\n  \"computed_at\": \"2016-08-30T03:31:45.782Z\",\n  \"reasons\": [\n    \"string\",\n    \"string\"\n  ],\n  \"data_tier\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b042bbc2-8c90-4489-955d-290c17bcd3e4",
+              "name": "Invalid pool address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "scores",
+                    ":poolAddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "poolAddress",
+                      "description": "(Required) Solana base58 address, or an EVM 0x address / DefiLlama pool UUID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e77eee1c-4d0a-4dd3-827d-602b89ec56ef",
+              "name": "Pool not scored",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "scores",
+                    ":poolAddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "poolAddress",
+                      "description": "(Required) Solana base58 address, or an EVM 0x address / DefiLlama pool UUID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://wealthville.net",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "c921eca8-9c1c-424e-bc5c-50974397884e",
+    "name": "Wealthville Public Data Scores API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public, read-only API for Wealthville pool scores (Enter/Hold/Exit + composite Wealthville Score, 0–100), the published-signal feed, and the live track record. Anonymous access is open at 60 requests/min per IP; partners can request an API key (sent as the `x-api-key` header) for a higher, per-key allowance. Methodology: https://www.wealthville.net/learn/wealthville-score\n\nContact Support:\n Name: Wealthville Support\n Email: support@wealthville.net",
+      "type": "text/plain"
+    }
+  }
+}

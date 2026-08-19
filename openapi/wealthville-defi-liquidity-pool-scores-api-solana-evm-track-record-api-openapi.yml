@@ -1,0 +1,93 @@
+openapi: 3.2.0
+info:
+  title: Wealthville Public Data Track Record API
+  version: 1.0.0
+  description: 'Public, read-only API for Wealthville pool scores (Enter/Hold/Exit + composite Wealthville Score, 0–100), the published-signal feed, and the live track record. Anonymous access is open at 60 requests/min per IP; partners can request an API key (sent as the `x-api-key` header) for a higher, per-key allowance. Methodology: https://www.wealthville.net/learn/wealthville-score'
+  termsOfService: https://wealthville.net/terms
+  contact:
+    name: Wealthville Support
+    url: https://www.wealthville.net/developers
+    email: support@wealthville.net
+  license:
+    name: Proprietary — see Terms of Service
+    url: https://wealthville.net/terms
+servers:
+- url: https://wealthville.net
+security:
+- {}
+- ApiKeyAuth: []
+tags:
+- name: Track Record
+paths:
+  /api/v1/track-record:
+    get:
+      summary: Live signal track record (includes misses)
+      description: 'Aggregates the immutable published-signal ledger joined to realized outcomes: per-action hit rates, IL-adjusted 7d PnL, weekly ENTER hit-rate trend, and the 50 most recent resolved signals. Honest by construction — every published signal is timestamped at publish and labeled after the fact. Cached 10 minutes.'
+      parameters:
+      - name: days
+        in: query
+        schema:
+          type: integer
+          minimum: 7
+          maximum: 90
+          default: 30
+      responses:
+        '200':
+          description: Track-record aggregates
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  as_of:
+                    type: string
+                    format: date-time
+                  window_days:
+                    type: integer
+                  methodology:
+                    type: string
+                  label_semantics:
+                    type: object
+                  by_action:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        final_action:
+                          type: string
+                          example: ENTER
+                        signals:
+                          type: integer
+                        resolved:
+                          type: integer
+                        hit_rate:
+                          type: string
+                          description: 0–1
+                        avg_pnl_7d:
+                          type:
+                          - string
+                          - 'null'
+                          description: 'fraction: fees + impermanent loss over 7d'
+                        avg_il_7d:
+                          type:
+                          - string
+                          - 'null'
+                        pnl_labeled:
+                          type: integer
+                  weekly_enter_hit_rate:
+                    type: array
+                    items:
+                      type: object
+                  recent_resolved:
+                    type: array
+                    items:
+                      type: object
+      tags:
+      - Track Record
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Optional partner key — raises the rate limit and identifies the caller.

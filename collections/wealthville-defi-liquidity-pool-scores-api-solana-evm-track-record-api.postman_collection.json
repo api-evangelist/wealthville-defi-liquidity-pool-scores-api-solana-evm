@@ -1,0 +1,120 @@
+{
+  "item": [
+    {
+      "id": "b1329af6-ab11-4251-a0df-30f8b7658b34",
+      "name": "Track Record",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "067e5acd-7dbd-4119-ba80-26e5b494cd37",
+          "name": "Live signal track record (includes misses)",
+          "request": {
+            "name": "Live signal track record (includes misses)",
+            "description": {
+              "content": "Aggregates the immutable published-signal ledger joined to realized outcomes: per-action hit rates, IL-adjusted 7d PnL, weekly ENTER hit-rate trend, and the 50 most recent resolved signals. Honest by construction — every published signal is timestamped at publish and labeled after the fact. Cached 10 minutes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "track-record"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "days",
+                  "value": "30"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d0e2babe-6140-440b-b5ae-e32e162ade98",
+              "name": "Track-record aggregates",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "track-record"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "days",
+                      "value": "30"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"as_of\": \"2023-02-10T19:45:58.096Z\",\n  \"window_days\": 1742,\n  \"methodology\": \"string\",\n  \"label_semantics\": {},\n  \"by_action\": [\n    {\n      \"final_action\": \"ENTER\",\n      \"signals\": 3277,\n      \"resolved\": 2402,\n      \"hit_rate\": \"string\",\n      \"avg_pnl_7d\": \"string\",\n      \"avg_il_7d\": \"string\",\n      \"pnl_labeled\": 3024\n    },\n    {\n      \"final_action\": \"ENTER\",\n      \"signals\": 9210,\n      \"resolved\": 6418,\n      \"hit_rate\": \"string\",\n      \"avg_pnl_7d\": null,\n      \"avg_il_7d\": null,\n      \"pnl_labeled\": 9400\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://wealthville.net",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "39ee238d-68db-4dd7-b979-eeed1a89c162",
+    "name": "Wealthville Public Data Track Record API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public, read-only API for Wealthville pool scores (Enter/Hold/Exit + composite Wealthville Score, 0–100), the published-signal feed, and the live track record. Anonymous access is open at 60 requests/min per IP; partners can request an API key (sent as the `x-api-key` header) for a higher, per-key allowance. Methodology: https://www.wealthville.net/learn/wealthville-score\n\nContact Support:\n Name: Wealthville Support\n Email: support@wealthville.net",
+      "type": "text/plain"
+    }
+  }
+}

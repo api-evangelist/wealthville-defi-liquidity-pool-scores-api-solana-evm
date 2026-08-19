@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Wealthville Public Data Signals API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Signals",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Published signals feed (JSON)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://wealthville.net/api/v1/signals/feed",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tier",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ai_only",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Paginated feed of published LIVE signals with narrative, confidence, and branded image URLs."
+        },
+        {
+          "info": {
+            "name": "One published signal, including its realized outcome",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://wealthville.net/api/v1/signals/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "One published signal, including its realized outcome"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

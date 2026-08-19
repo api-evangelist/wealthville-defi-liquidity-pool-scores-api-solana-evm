@@ -1,0 +1,257 @@
+{
+  "item": [
+    {
+      "id": "f2341d23-d48d-475a-b110-5bf766798e7a",
+      "name": "Signals",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2e0431d9-7346-45e3-b49c-a72d59f48351",
+          "name": "Published signals feed (JSON)",
+          "request": {
+            "name": "Published signals feed (JSON)",
+            "description": {
+              "content": "Paginated feed of published LIVE signals with narrative, confidence, and branded image URLs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "signals",
+                "feed"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "disabled": false,
+                  "key": "tier",
+                  "value": "free"
+                },
+                {
+                  "disabled": false,
+                  "key": "ai_only",
+                  "value": "false"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f5a65b76-740a-42d1-9384-b42befb737f4",
+              "name": "Signal list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "signals",
+                    "feed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "tier",
+                      "value": "free"
+                    },
+                    {
+                      "key": "ai_only",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"signals\": [\n    {\n      \"id\": 4351,\n      \"generated_at\": \"1987-08-30T13:05:45.242Z\",\n      \"signal_kind\": \"string\",\n      \"action\": \"ENTER\",\n      \"severity\": \"string\",\n      \"protocol\": \"string\",\n      \"pool_address\": \"string\",\n      \"pool_name\": \"string\",\n      \"chain\": \"string\",\n      \"confidence\": 2872.428870230398,\n      \"calibrated_confidence\": 5603.222046063254,\n      \"narrative\": null,\n      \"risk_note\": \"string\",\n      \"reasons\": [\n        \"string\",\n        \"string\"\n      ],\n      \"image_url\": null\n    },\n    {\n      \"id\": 3681,\n      \"generated_at\": \"2007-06-24T15:11:23.170Z\",\n      \"signal_kind\": \"string\",\n      \"action\": \"ENTER\",\n      \"severity\": \"string\",\n      \"protocol\": \"string\",\n      \"pool_address\": \"string\",\n      \"pool_name\": \"string\",\n      \"chain\": \"string\",\n      \"confidence\": 5111.843382708594,\n      \"calibrated_confidence\": null,\n      \"narrative\": \"string\",\n      \"risk_note\": \"string\",\n      \"reasons\": [\n        \"string\",\n        \"string\"\n      ],\n      \"image_url\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9bddbaf0-ec09-475c-b6b4-66b3091ae0ac",
+          "name": "One published signal, including its realized outcome",
+          "request": {
+            "name": "One published signal, including its realized outcome",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "signals",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "964dc09d-6c79-4370-8cc5-6b8d3223c24e",
+              "name": "Signal with outcome label and t0 snapshot",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "signals",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1c5d3bec-27d0-473e-8342-095212de436b",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "signals",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://wealthville.net",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "004ef10f-6997-43ea-a0e5-7b7e19c53a97",
+    "name": "Wealthville Public Data Signals API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public, read-only API for Wealthville pool scores (Enter/Hold/Exit + composite Wealthville Score, 0–100), the published-signal feed, and the live track record. Anonymous access is open at 60 requests/min per IP; partners can request an API key (sent as the `x-api-key` header) for a higher, per-key allowance. Methodology: https://www.wealthville.net/learn/wealthville-score\n\nContact Support:\n Name: Wealthville Support\n Email: support@wealthville.net",
+      "type": "text/plain"
+    }
+  }
+}

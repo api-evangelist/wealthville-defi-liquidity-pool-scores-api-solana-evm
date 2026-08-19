@@ -19,11 +19,17 @@ server:
   subfolder: mcp-server
   license: MIT
 stdio:
-  package: "@wealthville/mcp-server"
+  package: '@wealthville/mcp-server'
   install: npx -y @wealthville/mcp-server
   environment:
-    - {name: WEALTHVILLE_API_KEY, required: false, secret: true, description: Optional free partner key for a higher rate limit (anonymous works at 60 req/min).}
-    - {name: WEALTHVILLE_API_URL, required: false, secret: false, description: Override the API base URL (default https://wealthville.net).}
+  - name: WEALTHVILLE_API_KEY
+    required: false
+    secret: true
+    description: Optional free partner key for a higher rate limit (anonymous works at 60 req/min).
+  - name: WEALTHVILLE_API_URL
+    required: false
+    secret: false
+    description: Override the API base URL (default https://wealthville.net).
 introspection:
   method: tools/list
   gated: false
@@ -31,48 +37,87 @@ introspection:
   fetched: '2026-08-09'
   file: wealthville-defi-liquidity-pool-scores-api-solana-evm-mcp-tools.json
 tools:
-  - name: get_pool_score
-    title: Look up a pool score and verdict
-    description: >-
-      Get the Wealthville verdict (ENTER/HOLD/EXIT/AVOID) and scores (enter/hold/exit + composite
-      Wealthville Score, 0-100) for one liquidity pool. Accepts a Solana pool address (base58) or an
-      EVM 0x address / DefiLlama pool UUID.
-    input: {pool_address: {type: string, required: true, minLength: 8}}
-    read_only: true
-    idempotent: true
-    source_operation: openapi/wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json#GET /api/v1/scores/{poolAddress}
-  - name: get_top_pools
-    title: List top-ranked liquidity pools
-    description: List liquidity pools ranked by composite Wealthville Score, freshly scored within the last 6 hours.
-    input: {limit: {type: integer, required: false, minimum: 1, maximum: 100}, chain: {type: string, required: false}}
-    read_only: true
-    idempotent: true
-    source_operation: openapi/wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json#GET /api/v1/scores/top
-  - name: get_track_record
-    title: Get the published signal track record
-    description: >-
-      Get Wealthville's live signal track record - per-action hit rates, IL-adjusted 7-day PnL, and
-      recent resolved signals, misses included.
-    input: {days: {type: integer, required: false, minimum: 7, maximum: 90}}
-    read_only: true
-    idempotent: true
-    source_operation: openapi/wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json#GET /api/v1/track-record
-  - name: get_signals_feed
-    title: Get the latest published signals
-    description: Get the latest published Wealthville signals (ENTER/EXIT/RISK_OFF calls with narrative and confidence).
-    input: {limit: {type: integer, required: false, minimum: 1, maximum: 50}}
-    read_only: true
-    idempotent: true
-    source_operation: openapi/wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json#GET /api/v1/signals/feed
+- name: get_pool_score
+  title: Look up a pool score and verdict
+  description: Get the Wealthville verdict (ENTER/HOLD/EXIT/AVOID) and scores (enter/hold/exit + composite
+    Wealthville Score, 0-100) for one liquidity pool. Accepts a Solana pool address (base58) or an EVM
+    0x address / DefiLlama pool UUID.
+  input:
+    pool_address:
+      type: string
+      required: true
+      minLength: 8
+  read_only: true
+  idempotent: true
+  source_operation: openapi/wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json#GET
+    /api/v1/scores/{poolAddress}
+- name: get_top_pools
+  title: List top-ranked liquidity pools
+  description: List liquidity pools ranked by composite Wealthville Score, freshly scored within the last
+    6 hours.
+  input:
+    limit:
+      type: integer
+      required: false
+      minimum: 1
+      maximum: 100
+    chain:
+      type: string
+      required: false
+  read_only: true
+  idempotent: true
+  source_operation: openapi/wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json#GET
+    /api/v1/scores/top
+- name: get_track_record
+  title: Get the published signal track record
+  description: Get Wealthville's live signal track record - per-action hit rates, IL-adjusted 7-day PnL,
+    and recent resolved signals, misses included.
+  input:
+    days:
+      type: integer
+      required: false
+      minimum: 7
+      maximum: 90
+  read_only: true
+  idempotent: true
+  source_operation: openapi/wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json#GET
+    /api/v1/track-record
+- name: get_signals_feed
+  title: Get the latest published signals
+  description: Get the latest published Wealthville signals (ENTER/EXIT/RISK_OFF calls with narrative
+    and confidence).
+  input:
+    limit:
+      type: integer
+      required: false
+      minimum: 1
+      maximum: 50
+  read_only: true
+  idempotent: true
+  source_operation: openapi/wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json#GET
+    /api/v1/signals/feed
 other_agent_surfaces:
-  - {kind: elizaos-plugin, package: "@wealthville/plugin-wealthville"}
-  - {kind: solana-agent-kit-plugin, package: "@wealthville/solana-agent-kit-plugin"}
-  - {kind: mcpb-bundle, manifest: https://github.com/amitesh-m/wealthville-integrations/blob/main/mcpb/manifest.json}
-  - {kind: gemini-extension, manifest: https://github.com/amitesh-m/wealthville-integrations/blob/main/gemini-extension.json}
-  - {kind: agent-skill, file: skills/wealthville-defi-liquidity-pool-scores-api-solana-evm-pool-scoring.md}
+- kind: elizaos-plugin
+  package: '@wealthville/plugin-wealthville'
+- kind: solana-agent-kit-plugin
+  package: '@wealthville/solana-agent-kit-plugin'
+- kind: mcpb-bundle
+  manifest: https://github.com/amitesh-m/wealthville-integrations/blob/main/mcpb/manifest.json
+- kind: gemini-extension
+  manifest: https://github.com/amitesh-m/wealthville-integrations/blob/main/gemini-extension.json
+- kind: agent-skill
+  file: skills/wealthville-defi-liquidity-pool-scores-api-solana-evm-pool-scoring.md
 x-evidence:
   fetched: '2026-08-09'
   url: https://wealthville.net/mcp
   method: POST tools/list
   http_status: 200
   tools_returned: 4
+deployment:
+  mode: remote
+  endpoint: https://wealthville.net/mcp
+  verified: probed
+  probe: live
+  tools: 4
+  checked: '2026-08-12'
+  source: catalog MCP census

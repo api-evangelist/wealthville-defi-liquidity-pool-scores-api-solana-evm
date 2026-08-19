@@ -1,0 +1,23 @@
+{
+  "provider": "wealthville-defi-liquidity-pool-scores-api-solana-evm",
+  "sources": [
+    "wealthville-defi-liquidity-pool-scores-api-solana-evm-scores-api-openapi.yml",
+    "wealthville-defi-liquidity-pool-scores-api-solana-evm-signals-api-openapi.yml",
+    "wealthville-defi-liquidity-pool-scores-api-solana-evm-track-record-api-openapi.yml"
+  ],
+  "outputs": [
+    "wealthville-defi-liquidity-pool-scores-api-solana-evm-scores-api-openapi.yml",
+    "wealthville-defi-liquidity-pool-scores-api-solana-evm-signals-api-openapi.yml",
+    "wealthville-defi-liquidity-pool-scores-api-solana-evm-track-record-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "wealthville-defi-liquidity-pool-scores-api-solana-evm-scores-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "wealthville-defi-liquidity-pool-scores-api-solana-evm-signals-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "wealthville-defi-liquidity-pool-scores-api-solana-evm-track-record-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": []
+}

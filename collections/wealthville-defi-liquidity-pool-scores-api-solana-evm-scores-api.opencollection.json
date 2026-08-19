@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Wealthville Public Data Scores API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Scores",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Top pools ranked by Wealthville Score",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://wealthville.net/api/v1/scores/top",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "chain",
+                "value": "",
+                "type": "query",
+                "description": "\"solana\" (default), \"evm\" (all EVM chains), or one EVM chain name (e.g. \"ethereum\", \"base\")"
+              }
+            ]
+          },
+          "docs": "Freshly scored pools (verdicts computed within the last 6 hours), ranked by composite score. Cached 5 minutes."
+        },
+        {
+          "info": {
+            "name": "Scores for one pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://wealthville.net/api/v1/scores/:poolAddress",
+            "params": [
+              {
+                "name": "poolAddress",
+                "value": "",
+                "type": "path",
+                "description": "Solana base58 address, or an EVM 0x address / DefiLlama pool UUID"
+              }
+            ]
+          },
+          "docs": "Scores for one pool"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

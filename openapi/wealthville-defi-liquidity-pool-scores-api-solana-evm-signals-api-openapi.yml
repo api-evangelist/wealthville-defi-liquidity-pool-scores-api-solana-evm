@@ -1,0 +1,131 @@
+openapi: 3.2.0
+info:
+  title: Wealthville Public Data Signals API
+  version: 1.0.0
+  description: 'Public, read-only API for Wealthville pool scores (Enter/Hold/Exit + composite Wealthville Score, 0–100), the published-signal feed, and the live track record. Anonymous access is open at 60 requests/min per IP; partners can request an API key (sent as the `x-api-key` header) for a higher, per-key allowance. Methodology: https://www.wealthville.net/learn/wealthville-score'
+  termsOfService: https://wealthville.net/terms
+  contact:
+    name: Wealthville Support
+    url: https://www.wealthville.net/developers
+    email: support@wealthville.net
+  license:
+    name: Proprietary — see Terms of Service
+    url: https://wealthville.net/terms
+servers:
+- url: https://wealthville.net
+security:
+- {}
+- ApiKeyAuth: []
+tags:
+- name: Signals
+paths:
+  /api/v1/signals/feed:
+    get:
+      summary: Published signals feed (JSON)
+      description: Paginated feed of published LIVE signals with narrative, confidence, and branded image URLs.
+      parameters:
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 50
+          default: 20
+      - name: tier
+        in: query
+        schema:
+          type: string
+          enum:
+          - free
+          - premium
+          default: free
+      - name: ai_only
+        in: query
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: Signal list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  signals:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        generated_at:
+                          type: string
+                          format: date-time
+                        signal_kind:
+                          type: string
+                        action:
+                          type: string
+                          example: ENTER
+                        severity:
+                          type: string
+                        protocol:
+                          type: string
+                        pool_address:
+                          type: string
+                        pool_name:
+                          type:
+                          - string
+                          - 'null'
+                          description: Token pair, e.g. "SOL/USDC" (null when unresolvable)
+                        chain:
+                          type: string
+                        confidence:
+                          type:
+                          - number
+                          - 'null'
+                        calibrated_confidence:
+                          type:
+                          - number
+                          - 'null'
+                        narrative:
+                          type:
+                          - string
+                          - 'null'
+                        risk_note:
+                          type:
+                          - string
+                          - 'null'
+                        reasons:
+                          type: array
+                          items:
+                            type: string
+                        image_url:
+                          type:
+                          - string
+                          - 'null'
+      tags:
+      - Signals
+  /api/v1/signals/{id}:
+    get:
+      summary: One published signal, including its realized outcome
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Signal with outcome label and t0 snapshot
+        '404':
+          description: Not found
+      tags:
+      - Signals
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Optional partner key — raises the rate limit and identifies the caller.
