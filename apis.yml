@@ -12,7 +12,7 @@ url: https://raw.githubusercontent.com/api-evangelist/wealthville-defi-liquidity
 image: https://raw.githubusercontent.com/amitesh-m/wealthville-integrations/main/assets/logo.png
 created: '2026-07-27'
 modified: '2026-08-09'
-specificationVersion: '0.21'
+specificationVersion: '0.23'
 tags:
   - DeFi
   - Liquidity Pools
