@@ -126,6 +126,8 @@ generated:
   confidence: 90
   at: '2026-07-27T18:55:20.355Z'
 common:
+- type: Website
+  url: https://www.wealthville.net/
 - type: Overlay
   url: overlays/wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-overlay.yaml
 - type: VulnerabilityDisclosure
