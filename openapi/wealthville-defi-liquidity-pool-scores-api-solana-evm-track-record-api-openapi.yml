@@ -84,6 +84,8 @@ paths:
                       type: object
       tags:
       - Track Record
+      operationId: getApiV1TrackRecord
+      x-operation-id-source: derived
 components:
   securitySchemes:
     ApiKeyAuth:

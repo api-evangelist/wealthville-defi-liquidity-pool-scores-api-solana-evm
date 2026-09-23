@@ -56,6 +56,8 @@ paths:
                       $ref: '#/components/schemas/ScoreRow'
       tags:
       - Scores
+      operationId: getApiV1ScoresTop
+      x-operation-id-source: derived
   /api/v1/scores/{poolAddress}:
     get:
       summary: Scores for one pool
@@ -79,6 +81,8 @@ paths:
           description: Pool not scored
       tags:
       - Scores
+      operationId: getApiV1ScoresByPoolAddress
+      x-operation-id-source: derived
 components:
   schemas:
     ScoreRow:

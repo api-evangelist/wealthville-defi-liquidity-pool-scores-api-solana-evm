@@ -106,6 +106,8 @@ paths:
                           - 'null'
       tags:
       - Signals
+      operationId: getApiV1SignalsFeed
+      x-operation-id-source: derived
   /api/v1/signals/{id}:
     get:
       summary: One published signal, including its realized outcome
@@ -122,6 +124,8 @@ paths:
           description: Not found
       tags:
       - Signals
+      operationId: getApiV1SignalsById
+      x-operation-id-source: derived
 components:
   securitySchemes:
     ApiKeyAuth:

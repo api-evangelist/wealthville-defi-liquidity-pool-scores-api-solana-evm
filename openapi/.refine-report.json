@@ -1,9 +1,7 @@
 {
   "provider": "wealthville-defi-liquidity-pool-scores-api-solana-evm",
   "sources": [
-    "wealthville-defi-liquidity-pool-scores-api-solana-evm-scores-api-openapi.yml",
-    "wealthville-defi-liquidity-pool-scores-api-solana-evm-signals-api-openapi.yml",
-    "wealthville-defi-liquidity-pool-scores-api-solana-evm-track-record-api-openapi.yml"
+    "_original/wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json"
   ],
   "outputs": [
     "wealthville-defi-liquidity-pool-scores-api-solana-evm-scores-api-openapi.yml",
@@ -14,10 +12,21 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "wealthville-defi-liquidity-pool-scores-api-solana-evm-scores-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "wealthville-defi-liquidity-pool-scores-api-solana-evm-signals-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "wealthville-defi-liquidity-pool-scores-api-solana-evm-track-record-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json: tagged paths GET /api/v1/scores/top -> Scores",
+    "wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json: tagged paths GET /api/v1/scores/{poolAddress} -> Scores",
+    "wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json: tagged paths GET /api/v1/track-record -> Track Record",
+    "wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json: tagged paths GET /api/v1/signals/feed -> Signals",
+    "wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json: tagged paths GET /api/v1/signals/{id} -> Signals",
+    "wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json: declared missing tag: Scores",
+    "wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json: declared missing tag: Signals",
+    "wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-openapi.json: declared missing tag: Track Record",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "wealthville-defi-liquidity-pool-scores-api-solana-evm-scores-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wealthville-defi-liquidity-pool-scores-api-solana-evm-signals-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wealthville-defi-liquidity-pool-scores-api-solana-evm-track-record-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
