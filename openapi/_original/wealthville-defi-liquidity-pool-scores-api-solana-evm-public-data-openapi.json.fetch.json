@@ -1,0 +1,12 @@
+{
+ "url": "https://wealthville.net/openapi.json",
+ "requested_url": "https://wealthville.net/openapi.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 6671,
+ "sha256": "023c2cf4b8aea9cefb7650b83955c2317850d7404b0ade0bcf3023f80617070d",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the archived file is byte-identical to what the provider serves."
+}
