@@ -93,3 +93,9 @@ components:
       in: header
       name: x-api-key
       description: Optional partner key — raises the rate limit and identifies the caller.
+x-provenance:
+  method: harvested
+  publisher: WealthVille — DeFi Liquidity Pool Scores API (Solana & EVM)
+  source: https://wealthville.net/openapi.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
