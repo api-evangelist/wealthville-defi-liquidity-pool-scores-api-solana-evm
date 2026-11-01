@@ -1,4 +1,4 @@
-# WealthVille — DeFi Liquidity Pool Scores API (Solana & EVM) (wealthville-defi-liquidity-pool-scores-api-solana-evm)
+# WealthVille — DeFi Liquidity Pool Scores API (Solana & EVM)
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,124 +66,129 @@
 
 WealthVille provides a public, keyless REST API and agent-native surfaces for DeFi liquidity-pool scoring and signals across Solana and EVM chains. It exposes a composite Wealthville Score (0-100) with Enter/Hold/Exit verdicts, per-protocol confidence, Solana sub-scores (Risk, Scout, Farmer), an outcome-labeled track record, and a signals feed. Coverage includes Solana (Meteora, Orca, Raydium) and EVM chains (Ethereum, Arbitrum, Base, Optimism, Polygon, BNB Chain). The API is anonymous by default at 60 requests/min per IP, CORS-open, and read-only — every published operation is a GET. Alongside the REST contract WealthVille publishes an OpenAPI 3.0.3 document at the API host root, an llms.txt, a hosted Streamable-HTTP MCP server with four ungated tools, and a first-party MIT-licensed connector family (MCP server, ElizaOS plugin, Solana Agent Kit plugin, MCPB bundle, Gemini extension) plus its own Agent Skill.
 
-**APIs.json:** [https://wealthville-defi-liquidity-pool-scores-api-solana-evm.apievangelist.com/apis.yml](https://wealthville-defi-liquidity-pool-scores-api-solana-evm.apievangelist.com/apis.yml)
+**Areas:** DeFi · Liquidity Pools · Blockchain Analytics · Solana · EVM · Ethereum · Yield Farming · Risk Scoring · MCP · AI Agents · Financial Data
 
-## Tags
+## WealthVille — DeFi Liquidity Pool Scores API (Solana & EVM) on APIs.io
 
-- DeFi
-- Liquidity Pools
-- Blockchain Analytics
-- Solana
-- EVM
-- Ethereum
-- Yield Farming
-- Risk Scoring
-- MCP
-- AI Agents
-- Financial Data
+Everything profiled for WealthVille — DeFi Liquidity Pool Scores API (Solana & EVM) is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/wealthville-defi-liquidity-pool-scores-api-solana-evm/](https://apis.io/providers/wealthville-defi-liquidity-pool-scores-api-solana-evm/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (3)
 
-- **Created:** 2026-07-27
-- **Modified:** 2026-08-09
+- [WealthVille — DeFi Liquidity Pool Scores API (Solana & EVM) Scores API](https://apis.io/apis/wealthville-defi-liquidity-pool-scores-api-solana-evm/wealthville-defi-liquidity-pool-scores-api-solana-evm-scores-api/) — The Scores API from WealthVille — DeFi Liquidity Pool Scores API (Solana & EVM) — 2 operation(s) for scores.
+- [WealthVille — DeFi Liquidity Pool Scores API (Solana & EVM) Signals API](https://apis.io/apis/wealthville-defi-liquidity-pool-scores-api-solana-evm/wealthville-defi-liquidity-pool-scores-api-solana-evm-signals-api/) — The Signals API from WealthVille — DeFi Liquidity Pool Scores API (Solana & EVM) — 2 operation(s) for signals.
+- [WealthVille — DeFi Liquidity Pool Scores API (Solana & EVM) Track Record API](https://apis.io/apis/wealthville-defi-liquidity-pool-scores-api-solana-evm/wealthville-defi-liquidity-pool-scores-api-solana-evm-track-record-api/) — The Track Record API from WealthVille — DeFi Liquidity Pool Scores API (Solana & EVM) — 1 operation(s) for track record.
 
-## APIs
+### Published properties
 
-### WealthVille — DeFi Liquidity Pool Scores API (Solana & EVM) Scores API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-The Scores API from WealthVille — DeFi Liquidity Pool Scores API (Solana & EVM) — 2 operation(s) for scores.
+#### MCP servers (1)
 
-- **Human URL:** [https://wealthville.net/developers](https://wealthville.net/developers)
-- **Base URL:** `https://wealthville.net/api/v1`
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [Wealthville](https://apis.io/servers/wealthville-defi-liquidity-pool-scores-api-solana-evm/wealthville/)
 
-- Scores
+#### Examples (3)
 
-#### Properties
+Example requests and responses.
 
-- [OpenAPI](openapi/wealthville-defi-liquidity-pool-scores-api-solana-evm-scores-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/wealthville-defi-liquidity-pool-scores-api-solana-evm-scores-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/wealthville-defi-liquidity-pool-scores-api-solana-evm-scores-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://wealthville.net/developers)
-- [L L M S Txt](https://wealthville.net/llms.txt)
-- [Examples](examples/_index.yml)
-- [Tool Crosswalk](mcp/wealthville-defi-liquidity-pool-scores-api-solana-evm-tool-crosswalk.yml)
+- [Wealthville Defi Liquidity Pool Scores Api Solana Evm Scores Top](https://apis.io/examples/wealthville-defi-liquidity-pool-scores-api-solana-evm/wealthville-defi-liquidity-pool-scores-api-solana-evm-scores-top/)
+- [Wealthville Defi Liquidity Pool Scores Api Solana Evm Signals Feed](https://apis.io/examples/wealthville-defi-liquidity-pool-scores-api-solana-evm/wealthville-defi-liquidity-pool-scores-api-solana-evm-signals-feed/)
+- [Wealthville Defi Liquidity Pool Scores Api Solana Evm Track Record](https://apis.io/examples/wealthville-defi-liquidity-pool-scores-api-solana-evm/wealthville-defi-liquidity-pool-scores-api-solana-evm-track-record/)
 
-### WealthVille — DeFi Liquidity Pool Scores API (Solana & EVM) Signals API
+#### Collections (3)
 
-The Signals API from WealthVille — DeFi Liquidity Pool Scores API (Solana & EVM) — 2 operation(s) for signals.
+Postman and Open Collection request collections.
 
-- **Human URL:** [https://wealthville.net/developers](https://wealthville.net/developers)
-- **Base URL:** `https://wealthville.net/api/v1`
+- [Wealthville Public Data Scores API](https://apis.io/collections/wealthville-defi-liquidity-pool-scores-api-solana-evm/open-wealthville-defi-liquidity-pool-scores-api-solana-evm-scores-api/)
+- [Wealthville Public Data Signals API](https://apis.io/collections/wealthville-defi-liquidity-pool-scores-api-solana-evm/open-wealthville-defi-liquidity-pool-scores-api-solana-evm-signals-api/)
+- [Wealthville Public Data Track Record API](https://apis.io/collections/wealthville-defi-liquidity-pool-scores-api-solana-evm/open-wealthville-defi-liquidity-pool-scores-api-solana-evm-track-record-api/)
 
-#### Tags
+#### Overlays (1)
 
-- Signals
+OpenAPI overlays, including conversational phrasing for each operation.
 
-#### Properties
+- [Wealthville Defi Liquidity Pool Scores Api Solana Evm Public Data Overlay](https://apis.io/overlays/wealthville-defi-liquidity-pool-scores-api-solana-evm/wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-overlay/)
 
-- [OpenAPI](openapi/wealthville-defi-liquidity-pool-scores-api-solana-evm-signals-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/wealthville-defi-liquidity-pool-scores-api-solana-evm-signals-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/wealthville-defi-liquidity-pool-scores-api-solana-evm-signals-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://wealthville.net/developers)
-- [L L M S Txt](https://wealthville.net/llms.txt)
-- [Examples](examples/_index.yml)
-- [Tool Crosswalk](mcp/wealthville-defi-liquidity-pool-scores-api-solana-evm-tool-crosswalk.yml)
+#### Security (3)
 
-### WealthVille — DeFi Liquidity Pool Scores API (Solana & EVM) Track Record API
+Authentication, trust centre, and vulnerability disclosure.
 
-The Track Record API from WealthVille — DeFi Liquidity Pool Scores API (Solana & EVM) — 1 operation(s) for track record.
+- [Wealthville Defi Liquidity Pool Scores Api Solana Evm Authentication](https://apis.io/security/wealthville-defi-liquidity-pool-scores-api-solana-evm/wealthville-defi-liquidity-pool-scores-api-solana-evm-authentication/)
+- [Wealthville Defi Liquidity Pool Scores Api Solana Evm Domain Security](https://apis.io/security/wealthville-defi-liquidity-pool-scores-api-solana-evm/wealthville-defi-liquidity-pool-scores-api-solana-evm-domain-security/)
+- [Wealthville Defi Liquidity Pool Scores Api Solana Evm Vulnerability Disclosure](https://apis.io/security/wealthville-defi-liquidity-pool-scores-api-solana-evm/wealthville-defi-liquidity-pool-scores-api-solana-evm-vulnerability-disclosure/)
 
-- **Human URL:** [https://wealthville.net/developers](https://wealthville.net/developers)
-- **Base URL:** `https://wealthville.net/api/v1`
+#### Rate limits (1)
 
-#### Tags
+Published request limits.
 
-- Track Record
+- [Wealthville Defi Liquidity Pool Scores Api Solana Evm Rate Limits](https://apis.io/rate-limits/wealthville-defi-liquidity-pool-scores-api-solana-evm/wealthville-defi-liquidity-pool-scores-api-solana-evm-rate-limits/)
 
-#### Properties
+## Where to find this API
 
-- [OpenAPI](openapi/wealthville-defi-liquidity-pool-scores-api-solana-evm-track-record-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/wealthville-defi-liquidity-pool-scores-api-solana-evm-track-record-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/wealthville-defi-liquidity-pool-scores-api-solana-evm-track-record-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://wealthville.net/developers)
-- [L L M S Txt](https://wealthville.net/llms.txt)
-- [Examples](examples/_index.yml)
-- [Tool Crosswalk](mcp/wealthville-defi-liquidity-pool-scores-api-solana-evm-tool-crosswalk.yml)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-## Common Properties
-
-- [Overlay](overlays/wealthville-defi-liquidity-pool-scores-api-solana-evm-public-data-overlay.yaml)
-- [Vulnerability Disclosure](security/wealthville-defi-liquidity-pool-scores-api-solana-evm-vulnerability-disclosure.yml)
-- [Security](https://wealthville.net/security)
-- [Domain Security](security/wealthville-defi-liquidity-pool-scores-api-solana-evm-domain-security.yml)
-- [Authentication](authentication/wealthville-defi-liquidity-pool-scores-api-solana-evm-authentication.yml)
-- [M C P Server](mcp/wealthville-defi-liquidity-pool-scores-api-solana-evm-mcp.yml)
-- [Tool Crosswalk](mcp/wealthville-defi-liquidity-pool-scores-api-solana-evm-tool-crosswalk.yml)
-- [Agent Skill](skills/_index.yml)
-- [Packages](packages/wealthville-defi-liquidity-pool-scores-api-solana-evm-packages.yml)
-- [S D Ks](packages/wealthville-defi-liquidity-pool-scores-api-solana-evm-packages.yml)
-- [L L Ms Txt](llms/wealthville-defi-liquidity-pool-scores-api-solana-evm-llms.txt)
-- [Well Known](well-known/wealthville-defi-liquidity-pool-scores-api-solana-evm-well-known.yml)
-- [Conventions](conventions/wealthville-defi-liquidity-pool-scores-api-solana-evm-conventions.yml)
-- [Idempotency](conventions/wealthville-defi-liquidity-pool-scores-api-solana-evm-conventions.yml)
-- [Rate Limits](rate-limits/wealthville-defi-liquidity-pool-scores-api-solana-evm-rate-limits.yml)
-- [Error Catalog](errors/wealthville-defi-liquidity-pool-scores-api-solana-evm-problem-types.yml)
-- [Lifecycle](lifecycle/wealthville-defi-liquidity-pool-scores-api-solana-evm-lifecycle.yml)
-- [Conformance](conformance/wealthville-defi-liquidity-pool-scores-api-solana-evm-conformance.yml)
-- [Data Model](data-model/wealthville-defi-liquidity-pool-scores-api-solana-evm-data-model.yml)
-- [Developer Portal](https://wealthville.net/developers)
-- [API Reference](https://wealthville.net/developers)
-- [GitHub Organization](https://github.com/amitesh-m/wealthville-integrations)
+- [Website](https://www.wealthville.net/)
+- [API reference](https://wealthville.net/developers)
+- [Pricing](https://wealthville.net/pricing)
 - [Support](https://wealthville.net/contact)
 - [Blog](https://blog.wealthville.net/)
-- [Pricing](https://wealthville.net/pricing)
-- [Terms of Service](https://wealthville.net/terms)
-- [Privacy Policy](https://wealthville.net/privacy)
+- [Security](https://wealthville.net/security)
+- [Terms of service](https://wealthville.net/terms)
+- [Privacy policy](https://wealthville.net/privacy)
+- [GitHub](https://github.com/amitesh-m/wealthville-integrations)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** WealthVille
-**Email:** support@wealthville.net
-**URL:** https://wealthville.net
+**Kin Score 45.7** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 50.9 |
+| Contract governance | 4.5 |
+| Operational transparency | 34.2 |
+| Developer ergonomics | 59.5 |
+| Access clarity | 31.6 |
+
+**Agent readiness 43.1** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | na |
+| MCP Server | verified |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | yes |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 30.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/wealthville-defi-liquidity-pool-scores-api-solana-evm/](https://apis.io/providers/wealthville-defi-liquidity-pool-scores-api-solana-evm/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for WealthVille — DeFi Liquidity Pool Scores API (Solana & EVM): the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/wealthville-defi-liquidity-pool-scores-api-solana-evm/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
